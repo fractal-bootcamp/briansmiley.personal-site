@@ -40,9 +40,6 @@ export default function AudioPlayer({
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
-  
-    // console.log("Audio source:", audio.src)
-
     const updateTime = () => {
       if (!isSeeking) {
         setCurrentTime(audio.currentTime)
@@ -60,7 +57,6 @@ export default function AudioPlayer({
     audio.addEventListener("error", handleError)
 
     return () => {
-
       audio.removeEventListener("timeupdate", updateTime)
       audio.removeEventListener("loadedmetadata", updateDuration)
       audio.removeEventListener("error", handleError)
@@ -134,7 +130,6 @@ export default function AudioPlayer({
           <button
             className="absolute bottom-1 right-1 flex h-fit w-fit"
             onClick={() => setShowSpotify(!showSpotify)}
-            style={{ opacity: 1 }}
           >
             <span className="sr-only">Spotify</span>
             <FontAwesomeIcon
@@ -153,7 +148,6 @@ export default function AudioPlayer({
                 height={100}
                 className="h-[100px] w-[100px] cursor-pointer rounded-lg object-cover transition-opacity hover:opacity-90"
                 onClick={() => setIsImageModalOpen(true)}
-                style={{ opacity: 1 }}
               />
               {isImageModalOpen && (
                 <div

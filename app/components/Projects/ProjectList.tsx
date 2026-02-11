@@ -1,5 +1,4 @@
 import { ProjectType } from "~/lib/types"
-// import ProjectThumbnail from "./ProjectThumbnail";
 import { useBreakpoint } from "use-breakpoint"
 import { BREAKPOINTS } from "~/lib/data"
 import ProjectThumbnail2 from "./ProjectThumbnail2"

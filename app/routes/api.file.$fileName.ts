@@ -5,7 +5,6 @@ const B2_APPLICATION_KEY_ID = process.env.B2_APPLICATION_KEY_ID
 const B2_APPLICATION_KEY = process.env.B2_APPLICATION_KEY
 const B2_BUCKET_NAME = process.env.B2_BUCKET_NAME
 const B2_BUCKET_ID = process.env.B2_BUCKET_ID
-// const DEBUG = process.env.NODE_ENV === "development"
 
 const B2ApiResponseSchema = z.object({
   authorizationToken: z.string(),
@@ -48,7 +47,6 @@ async function getB2Credentials() {
 async function getSignedUrl(fileName: string, expiresInSeconds: number, wantsDownload: boolean) {
   const credentials = await getB2Credentials()
   const fetchUrl = `${credentials.apiInfo.storageApi.apiUrl}/b2api/v4/b2_get_download_authorization`
-  console.log("Fetching signed URL from:", fetchUrl)
   const response = await fetch(
     fetchUrl,
     {
@@ -72,7 +70,7 @@ async function getSignedUrl(fileName: string, expiresInSeconds: number, wantsDow
     throw new Error("Failed to get signed URL")
   }
   const body = await response.json()
-  return B2SignedUrlResponseSchema.parse(body)
+  return { signedUrl: B2SignedUrlResponseSchema.parse(body), credentials }
 }
 
 const LoaderParams = z.object({
@@ -85,21 +83,13 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
     const url = new URL(request.url)
     const wantsDownload = url.searchParams.get("download") === "true"
 
-    const signedUrlAuth = await getSignedUrl(fileName, 60 * 5, wantsDownload) // 5 minutes
-    const range = request.headers.get("range")
-    console.log("\n=== File Request ===\n", {
-      timestamp: new Date().toISOString(),
-      fileName,
-      range: request.headers.get("range"),
-    })
+    const { signedUrl, credentials } = await getSignedUrl(fileName, 60 * 5, wantsDownload)
 
-    const credentials = await getB2Credentials()
-    let fileUrl = `${credentials.apiInfo.storageApi.downloadUrl}/file/${B2_BUCKET_NAME}/${fileName}?Authorization=${signedUrlAuth.authorizationToken}`
+    let fileUrl = `${credentials.apiInfo.storageApi.downloadUrl}/file/${B2_BUCKET_NAME}/${fileName}?Authorization=${signedUrl.authorizationToken}`
     if (wantsDownload) {
       const disposition = encodeURIComponent(`attachment; filename="${fileName}"`)
       fileUrl += `&b2ContentDisposition=${disposition}`
     }
-    console.log("Redirecting to B2 signed URL:", fileUrl)
     return new Response(null, {
       status: 302,
       headers: {

@@ -12,14 +12,14 @@ export default function Projects() {
   return (
     <div className="flex h-full w-full flex-col items-center overflow-y-auto py-5">
       <div className="flex flex-col gap-5 px-2">
-        <span className="flex flex-col">
-          <span className="px-2 text-xl font-semibold md:text-2xl">Web</span>
+        <section className="flex flex-col">
+          <h2 className="px-2 text-xl font-semibold md:text-2xl">Web</h2>
           <ProjectList projects={projects} />
-        </span>
-        <span className="flex flex-col">
-          <span className="px-2 text-xl font-semibold md:text-2xl">Other</span>
+        </section>
+        <section className="flex flex-col">
+          <h2 className="px-2 text-xl font-semibold md:text-2xl">Other</h2>
           <ProjectList projects={offProjects} />
-        </span>
+        </section>
       </div>
     </div>
   )
