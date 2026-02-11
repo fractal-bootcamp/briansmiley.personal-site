@@ -134,7 +134,7 @@ export default function AudioPlayer({
             <span className="sr-only">Spotify</span>
             <FontAwesomeIcon
               icon={faSpotify}
-              className="h-5 w-5 text-green-600 text-opacity-70 hover:text-opacity-100"
+              className="h-5 w-5 text-green-600 hover:text-opacity-70"
             />
           </button>
         )}
@@ -219,8 +219,11 @@ export default function AudioPlayer({
         </div>
       </div>
       <div
-        className={`max-w-screen w-full overflow-hidden bg-inherit transition-all duration-300 ease-in-out ${
-          showSpotify ? "opacity-100" : "h-0 opacity-0"
+        style={{
+          maxHeight: showSpotify ? "500px" : "0px",
+        }}
+        className={`max-w-screen w-full overflow-hidden bg-inherit transition-all duration-500 ease-in-out ${
+          showSpotify ? "opacity-100" : "opacity-0"
         }`}
       >
         {spotifyPlaylistId && (
