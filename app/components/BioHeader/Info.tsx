@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react"
-import { CalendarIcon, CopyIcon, MailIcon } from "lucide-react"
+import { CopyIcon, MailIcon } from "lucide-react"
 import FrameworkIcon from "../FrameworkIcon/FrameworkIcon"
 import { useToast } from "~/hooks/use-toast"
 import { Button } from "../ui/button"
@@ -18,16 +18,16 @@ export default function Info() {
       </Link>
       <div className="flex h-8 w-full items-center justify-start gap-2">
         <a
-          href="mailto:briansmiley@proton.me"
+          href="mailto:briantsmiley42@gmail.com"
           className="flex items-center gap-1 hover:underline"
         >
-          <MailIcon className="size-4" /> briansmiley@proton.me
+          <MailIcon className="size-4" /> briantsmiley42@gmail.com
         </a>
         <Button
           className="flex items-center justify-center"
           title="Copy"
           onClick={() => {
-            navigator.clipboard.writeText("briansmiley@proton.me")
+            navigator.clipboard.writeText("briantsmiley42@gmail.com")
             toast({
               title: "Copied email",
             })
@@ -38,15 +38,6 @@ export default function Info() {
           <CopyIcon className="" />
         </Button>
       </div>
-      <Link
-        className="flex h-8 items-center gap-1 hover:underline"
-        to="https://cal.com/brian-s-ehavyh"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <CalendarIcon className="size-4" />
-        <span> Book a Call </span>
-      </Link>
     </div>
   )
 }
