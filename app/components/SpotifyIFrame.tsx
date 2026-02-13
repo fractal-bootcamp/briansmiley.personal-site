@@ -1,6 +1,6 @@
 export default function SpotifyIFrame({
   spotifyPlaylistId,
-  height = "380",
+  height = "500",
 }: {
   spotifyPlaylistId: string
   height?: string
