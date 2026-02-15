@@ -16,7 +16,7 @@ export const mixes: Mix[] = [
   {
     slug: "scaffold",
     title: "Scaffold",
-    fileName: "ssw-scaffold.mp3",
+    fileName: "ssw-scaffold.m4a",
     imageUrl: "/thumbnails/ssw/ssw-scaffold.jpg",
     spotifyPlaylistId: "0hqzRaDAV7wzbmyMZhTJ2Z",
   },
