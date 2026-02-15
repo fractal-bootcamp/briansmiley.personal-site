@@ -1,4 +1,4 @@
-import { IconDefinition } from "@fortawesome/free-brands-svg-icons"
+import { IconType } from "react-icons"
 
 export type ProjectType = {
   title: string
@@ -11,6 +11,6 @@ export type ProjectType = {
 
 export type IconLinkType = {
   label: string
-  icon: IconDefinition
+  icon: IconType
   url: string
 }

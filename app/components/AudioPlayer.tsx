@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Link } from "@remix-run/react"
-import { Play, Pause, Download, LinkIcon, Check } from "lucide-react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSpotify } from "@fortawesome/free-brands-svg-icons"
+import { LuPlay, LuPause, LuDownload, LuLink, LuCheck } from "react-icons/lu"
+import { FaSpotify } from "react-icons/fa6"
 import SpotifyIFrame from "./SpotifyIFrame"
 import { useMediaQuery } from "usehooks-ts"
 
@@ -135,9 +134,9 @@ export default function AudioPlayer({
             >
               <span className="sr-only">Copy link</span>
               {copied ? (
-                <Check className="h-5 w-5 text-green-500" />
+                <LuCheck className="h-5 w-5 text-green-500" />
               ) : (
-                <LinkIcon className="h-5 w-5 text-muted-foreground hover:text-foreground" />
+                <LuLink className="h-5 w-5 text-muted-foreground hover:text-foreground" />
               )}
             </button>
           )}
@@ -149,7 +148,7 @@ export default function AudioPlayer({
               title="Download audio"
             >
               <span className="sr-only">Download</span>
-              <Download className="h-5 w-5 text-muted-foreground hover:text-foreground" />
+              <LuDownload className="h-5 w-5 text-muted-foreground hover:text-foreground" />
             </a>
           )}
         </div>
@@ -159,8 +158,7 @@ export default function AudioPlayer({
             onClick={() => setShowSpotify(!showSpotify)}
           >
             <span className="sr-only">Spotify</span>
-            <FontAwesomeIcon
-              icon={faSpotify}
+            <FaSpotify
               className="h-5 w-5 text-green-600 hover:text-opacity-70"
             />
           </button>
@@ -203,12 +201,12 @@ export default function AudioPlayer({
                 {isPlaying ? (
                   <>
                     <span className="sr-only">Pause</span>
-                    <Pause className="h-6 w-6" />
+                    <LuPause className="h-6 w-6" />
                   </>
                 ) : (
                   <>
                     <span className="sr-only">Play</span>
-                    <Play className="h-6 w-6" />
+                    <LuPlay className="h-6 w-6" />
                   </>
                 )}
               </button>

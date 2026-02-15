@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link, useParams } from "@remix-run/react"
-import { LinkIcon, Check } from "lucide-react"
+import { LuLink, LuCheck } from "react-icons/lu"
 import AudioPlayer from "~/components/AudioPlayer"
 import SpotifyIFrame from "~/components/SpotifyIFrame"
 import { mixes, playlists } from "~/data/soundwaves"
@@ -30,9 +30,9 @@ function PlaylistHeader({
         >
           <span className="sr-only">Copy link</span>
           {copied ? (
-            <Check className="h-5 w-5 text-green-500" />
+            <LuCheck className="h-5 w-5 text-green-500" />
           ) : (
-            <LinkIcon className="h-5 w-5 text-muted-foreground hover:text-foreground" />
+            <LuLink className="h-5 w-5 text-muted-foreground hover:text-foreground" />
           )}
         </button>
       </div>

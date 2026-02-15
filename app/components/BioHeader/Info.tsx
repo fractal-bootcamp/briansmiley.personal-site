@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react"
-import { CopyIcon, MailIcon } from "lucide-react"
+import { LuCopy, LuMail } from "react-icons/lu"
 import FrameworkIcon from "../FrameworkIcon/FrameworkIcon"
 import { useToast } from "~/hooks/use-toast"
 import { Button } from "../ui/button"
@@ -21,7 +21,7 @@ export default function Info() {
           href="mailto:briantsmiley42@gmail.com"
           className="flex items-center gap-1 hover:underline"
         >
-          <MailIcon className="size-4" /> briantsmiley42@gmail.com
+          <LuMail className="size-4" /> briantsmiley42@gmail.com
         </a>
         <Button
           className="flex items-center justify-center"
@@ -35,7 +35,7 @@ export default function Info() {
           variant="ghost"
           size="icon"
         >
-          <CopyIcon className="" />
+          <LuCopy className="" />
         </Button>
       </div>
     </div>

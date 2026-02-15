@@ -1,28 +1,25 @@
-import {
-  faXTwitter,
-  faGithub,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons"
+import { FaGithub, FaXTwitter, FaLinkedin } from "react-icons/fa6"
+import { BsSoundwave } from "react-icons/bs"
+import { LuInfo } from "react-icons/lu"
 import IconLink from "./IconLink"
 import { IconLinkType } from "../../lib/types"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
 import { Link } from "@remix-run/react"
-import { InfoIcon } from "lucide-react"
 import Info from "./Info"
 const IconLinks: IconLinkType[] = [
   {
     label: "GitHub",
-    icon: faGithub,
+    icon: FaGithub,
     url: "https://github.com/briansmiley",
   },
   {
     label: "Twitter",
-    icon: faXTwitter,
+    icon: FaXTwitter,
     url: "https://www.x.com/binarysmile",
   },
   {
     label: "LinkedIn",
-    icon: faLinkedin,
+    icon: FaLinkedin,
     url: "https://www.linkedin.com/in/brian-smiley-1289a6121/",
   },
 ]
@@ -37,9 +34,12 @@ export default function BioHeader() {
           {IconLinks.map((iconLink) => (
             <IconLink key={iconLink.url} iconLink={iconLink} size={24} />
           ))}
+          <Link to="/soundwaves" className="text-midblue hover:text-darkblue" title="Soundwaves">
+            <BsSoundwave className="size-6" />
+          </Link>
           <Popover>
             <PopoverTrigger>
-              <InfoIcon className="size-6 text-midblue hover:text-darkblue" />
+              <LuInfo className="size-6 text-midblue hover:text-darkblue" />
             </PopoverTrigger>
             <PopoverContent align="start">
               <Info />

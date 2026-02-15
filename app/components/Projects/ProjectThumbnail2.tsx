@@ -1,7 +1,6 @@
 import { Link } from "@remix-run/react"
 import { ProjectType } from "~/lib/types"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { FaGithub } from "react-icons/fa6"
 import FrameworkIcon from "../FrameworkIcon/FrameworkIcon"
 
 type ProjectThumbnail2Props = {
@@ -49,7 +48,7 @@ export default function ProjectThumbnail2({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon icon={faGithub} className="h-5 w-5" />
+                <FaGithub className="h-5 w-5" />
               </a>
             </div>
             <p className="text-sm">{project.blurb}</p>
