@@ -34,12 +34,12 @@ export default function BioHeader() {
           {IconLinks.map((iconLink) => (
             <IconLink key={iconLink.url} iconLink={iconLink} size={24} />
           ))}
-          <Link to="/soundwaves" className="text-midblue hover:text-darkblue" title="Soundwaves">
-            <BsSoundwave className="size-6" />
+          <Link to="/soundwaves" className="text-midblue hover:text-darkblue" title="Soundwaves" aria-label="Soundwaves">
+            <BsSoundwave className="size-6" aria-hidden />
           </Link>
           <Popover>
-            <PopoverTrigger>
-              <LuInfo className="size-6 text-midblue hover:text-darkblue" />
+            <PopoverTrigger aria-label="Contact info">
+              <LuInfo className="size-6 text-midblue hover:text-darkblue" aria-hidden />
             </PopoverTrigger>
             <PopoverContent align="start">
               <Info />

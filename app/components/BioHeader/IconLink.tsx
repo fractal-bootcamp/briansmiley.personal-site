@@ -13,8 +13,9 @@ export default function IconLink({ iconLink, size = 20 }: IconLinkProps) {
       rel="noopener noreferrer"
       target="_blank"
       title={label}
+      aria-label={label}
     >
-      <Icon style={{ height: size, width: size }} />
+      <Icon style={{ height: size, width: size }} aria-hidden />
     </a>
   )
 }
