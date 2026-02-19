@@ -1,9 +1,19 @@
+import { useEffect } from "react"
 import { LuMoon, LuSun } from "react-icons/lu"
 import { Theme, useTheme } from "remix-themes"
 import { Switch } from "./ui/themeSwitch"
 
 export function ModeToggleSwitch() {
   const [theme, setTheme] = useTheme()
+
+  useEffect(() => {
+    if (theme === null) {
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches
+      setTheme(prefersDark ? Theme.DARK : Theme.LIGHT)
+    }
+  }, [theme, setTheme])
 
   return (
     <div className="flex items-center">
