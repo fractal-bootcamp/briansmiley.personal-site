@@ -20,6 +20,9 @@ const config = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      playfair: ['"Playfair Display"', "serif"],
+    },
     extend: {
       colors: {
         lightgray: "#eaeff1",

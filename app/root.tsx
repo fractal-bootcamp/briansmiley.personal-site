@@ -17,6 +17,16 @@ import BioHeader from "./components/BioHeader/BioHeader"
 import { ModeToggleSwitch } from "./components/mode-toggle-switch"
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap",
+  },
 ]
 
 export async function loader({ request }: LoaderFunctionArgs) {

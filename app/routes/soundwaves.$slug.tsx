@@ -9,10 +9,12 @@ function PlaylistHeader({
   slug,
   name,
   spotifyPlaylistId,
+  trackCount,
 }: {
   slug: string
   name: string
   spotifyPlaylistId: string
+  trackCount: number
 }) {
   const [copied, setCopied] = useState(false)
   return (
@@ -36,7 +38,7 @@ function PlaylistHeader({
           )}
         </button>
       </div>
-      <SpotifyIFrame spotifyPlaylistId={spotifyPlaylistId} />
+      <SpotifyIFrame spotifyPlaylistId={spotifyPlaylistId} trackCount={trackCount} />
     </div>
   )
 }
@@ -70,7 +72,7 @@ export default function SoundwaveSlugPage() {
           defaultShowSpotify
         />
       )}
-      {playlist && <PlaylistHeader slug={playlist.slug} name={playlist.name} spotifyPlaylistId={playlist.spotifyPlaylistId} />}
+      {playlist && <PlaylistHeader slug={playlist.slug} name={playlist.name} spotifyPlaylistId={playlist.spotifyPlaylistId} trackCount={playlist.trackCount} />}
     </div>
   )
 }
