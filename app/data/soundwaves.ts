@@ -12,6 +12,7 @@ export type Mix = {
 export type Playlist = {
   slug: string
   name: string
+  imageUrl: string
   spotifyPlaylistId: string
   trackCount: number
   blurb: string | null
@@ -85,6 +86,7 @@ export const playlists: Playlist[] = [
   {
     slug: "wanderers",
     name: "Wanderers",
+    imageUrl: "/thumbnails/ssw/ssw-wanderers.jpg",
     spotifyPlaylistId: "4ZGmFH61GpjIvYvzk70K1k",
     trackCount: 12,
     blurb: null,
@@ -93,6 +95,7 @@ export const playlists: Playlist[] = [
   {
     slug: "orpheo-looks-back",
     name: "Orpheo Looks Back",
+    imageUrl: "/thumbnails/ssw/ssw-orpheo-looks-back.jpg",
     spotifyPlaylistId: "5EVp644Ux5D3yQNhQWvNJx",
     trackCount: 12,
     blurb: null,
@@ -101,6 +104,7 @@ export const playlists: Playlist[] = [
   {
     slug: "apotheosis",
     name: "Apotheosis",
+    imageUrl: "/thumbnails/ssw/ssw-apotheosis.jpg",
     spotifyPlaylistId: "56nr0wWzP0I67cFVzI9w2y",
     trackCount: 17,
     blurb: null,
@@ -109,6 +113,7 @@ export const playlists: Playlist[] = [
   {
     slug: "catabasis",
     name: "Catabasis",
+    imageUrl: "/thumbnails/ssw/ssw-catabasis.jpg",
     spotifyPlaylistId: "4hfe09hZf7XbaTMshbugAi",
     trackCount: 11,
     blurb: null,
@@ -117,6 +122,7 @@ export const playlists: Playlist[] = [
   {
     slug: "perambulations",
     name: "Perambulations",
+    imageUrl: "/thumbnails/ssw/ssw-perambulations.jpg",
     spotifyPlaylistId: "63wN0tDYwkunOyipHQyDgA",
     trackCount: 14,
     blurb: null,
@@ -125,6 +131,7 @@ export const playlists: Playlist[] = [
   {
     slug: "antechamber",
     name: "Antechamber",
+    imageUrl: "/thumbnails/ssw/ssw-antechamber.jpg",
     spotifyPlaylistId: "6ov76cdkO3YBmjzX3y1tUr",
     trackCount: 6,
     blurb: null,

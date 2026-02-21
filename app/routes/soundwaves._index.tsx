@@ -59,29 +59,29 @@ export default function SoundwavesIndex() {
         <p className="mb-6 mt-1 text-sm text-muted-foreground">
           Raw Spotify playlists without mixing.
         </p>
-        <div className="divide-y divide-border">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {playlists.map((playlist) => (
             <Link
               key={playlist.slug}
               to={`/soundwaves/${playlist.slug}`}
-              className="group flex items-center justify-between gap-4 py-4 transition-colors hover:bg-muted/50"
+              className="group relative overflow-hidden rounded-lg"
             >
-              <div className="flex items-center gap-3">
-                <FaSpotify className="h-5 w-5 shrink-0 text-green-600" />
-                <div>
-                  <h3 className="font-playfair font-semibold group-hover:underline">
-                    {playlist.name}
-                  </h3>
-                  {playlist.blurb && (
-                    <p className="text-sm text-muted-foreground">
-                      {playlist.blurb}
-                    </p>
-                  )}
-                </div>
+              <img
+                src={playlist.imageUrl}
+                alt={playlist.name}
+                className="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <FaSpotify className="absolute right-3 top-3 h-6 w-6 text-green-500 drop-shadow-lg" />
+              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black via-black/40 via-40% to-transparent p-5">
+                <h3 className="font-playfair text-xl font-bold text-white">
+                  {playlist.name}
+                </h3>
+                {playlist.blurb && (
+                  <p className="mt-1 text-sm leading-snug text-gray-200">
+                    {playlist.blurb}
+                  </p>
+                )}
               </div>
-              <span className="text-sm text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100">
-                &rarr;
-              </span>
             </Link>
           ))}
         </div>
